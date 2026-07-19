@@ -82,7 +82,7 @@ Private.cache[Module] = cache
 Private.AddUpdater(Module, function(self)
 
 	local db = BagnonItemInfo_DB
-	local message, color, mult, _
+	local message, _
 
 	if (self.hasItem and db.enableItemBind) then
 
@@ -152,10 +152,7 @@ Private.AddUpdater(Module, function(self)
 
 				message = bind == 3 and L["BoU"] or L["BoE"]
 
-				if (db.enableRarityColoring) then
-					color = quality and colors[quality > 0 and quality or 1]
-					mult = (quality ~= 3 and quality ~= 4 and quality ~= 0 and quality ~= 1) and .7
-				end
+
 			end
 
 		end
@@ -195,15 +192,7 @@ Private.AddUpdater(Module, function(self)
 
 		label:SetText(message)
 
-		if (color) then
-			if (mult) then
-				label:SetTextColor(color[1] * mult, color[2] * mult, color[3] * mult)
-			else
-				label:SetTextColor(color[1], color[2], color[3])
-			end
-		else
-			label:SetTextColor(.94, .94, .94)
-		end
+label:SetTextColor(0, 1, 1) -- always cyan for BoE/BoU
 
 	elseif (cache[self]) then
 		cache[self]:SetText("")
