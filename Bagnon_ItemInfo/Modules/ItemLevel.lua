@@ -57,23 +57,18 @@ local font_object = NumberFont_Outline_Med or NumberFontNormal
 local s_item_level = "^" .. string_gsub(ITEM_LEVEL, "%%d", "(%%d+)")
 local s_num_slots = "^" .. (string_gsub(string_gsub(CONTAINER_SLOTS, "%%([%d%$]-)d", "(%%d+)"), "%%([%d%$]-)s", "%.+"))
 
--- Blends a color toward white. amount 0 = unchanged, 1 = pure white.
-local function Lighten(r, g, b, amount)
-	return r + (1 - r) * amount, g + (1 - g) * amount, b + (1 - b) * amount
-end
-
 -- Custom color cache
 -- Allows us control, gives us speed.
 local colors = {
-	[0] = { Lighten(157/255, 157/255, 157/255, 0.20) }, -- Poor 
-	[1] = { Lighten(240/255, 240/255, 240/255, 0.10) }, -- Common 
-	[2] = { Lighten(30/255, 198/255, 0/255, 0.35) }, -- Uncommon 
-	[3] = { Lighten(0/255, 112/255, 221/255, 0.25) }, -- Rare 
-	[4] = { Lighten(163/255, 53/255, 238/255, 0.35) }, -- Epic
-	[5] = { Lighten(225/255, 96/255, 0/255, 0.30) }, -- Legendary 
-	[6] = { Lighten(229/255, 204/255, 127/255, 0.25) }, -- Artifact 
-	[7] = { Lighten(79/255, 196/255, 225/255, 0.25) }, -- Heirloom
-	[8] = { Lighten(79/255, 196/255, 225/255, 0.25) } -- Blizzard 
+	[0] = { 0.72, 0.72, 0.72 }, -- Poor
+	[1] = { 1.0, 1.0, 1.0 }, -- Common
+	[2] = { 0.3, 1.0, 0.38 }, -- Uncommon (green)
+	[3] = { 0.4, 0.71, 1.0 }, -- Rare (blue)
+	[4] = { 0.97, 0.63, 0.83 }, -- Epic (pink)
+	[5] = { 1, 0.602, 0.2 }, -- Legendary (orange)
+	[6] = { 0.94, 0.87, 0.67 }, -- Artifact (gold)
+	[7] = { 0.2, 0.84, 1.0 }, -- Heirloom (sky blue)
+	[8] = { 0.2, 0.84, 1.0 } -- Blizzard
 }
 for i = 0, (retail and Enum.ItemQualityMeta.NumValues or NUM_LE_ITEM_QUALITYS) - 1 do
 	if (not colors[i]) then
