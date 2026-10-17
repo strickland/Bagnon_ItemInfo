@@ -35,7 +35,9 @@ local string_find = string.find
 
 -- WoW API
 local C_Container, C_TooltipInfo, TooltipUtil = C_Container, C_TooltipInfo, TooltipUtil
-local CreateFrame, GetItemInfo, GetItemQualityColor = CreateFrame, GetItemInfo, GetItemQualityColor
+local CreateFrame = CreateFrame
+local GetItemInfo = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+local GetItemQualityColor = (C_Item and C_Item.GetItemQualityColor) or GetItemQualityColor
 
 -- Addon cache
 local retail = Private.IsRetail
