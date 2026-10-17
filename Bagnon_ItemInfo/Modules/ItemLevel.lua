@@ -41,9 +41,10 @@ local tonumber = tonumber
 
 -- WoW API
 local C_Item, C_TooltipInfo, TooltipUtil = C_Item, C_TooltipInfo, TooltipUtil
-local CreateFrame, GetItemQualityColor = CreateFrame, GetItemQualityColor
-local GetItemInfo = C_Item.GetItemInfo or GetItemInfo
-local GetItemInfoInstant = C_Item.GetItemInfoInstant or GetItemInfoInstant
+local CreateFrame = CreateFrame
+local GetItemQualityColor = (C_Item and C_Item.GetItemQualityColor) or GetItemQualityColor
+local GetItemInfo = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+local GetItemInfoInstant = (C_Item and C_Item.GetItemInfoInstant) or GetItemInfoInstant
 
 local retail = Private.IsRetail
 local tooltip = Private.tooltip
