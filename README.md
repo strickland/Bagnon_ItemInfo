@@ -1,5 +1,3 @@
-THIS FORK: All it does is, change the coloration of ilvl to be more subtle & different from the item border itself for more visual. The purple becomes light purple, etc. Also it changes BoU/BoE/BoA to be always cyan rather than just being the color of the item quality to differentiate it from ilvl.
-
 This is a simple plugin for the addon Bagnon that first and foremost shows the item level of your equipable gear, but also additional information like the bind status of items (BoE, BoU), a purple eye on uncollected transmog appearances and desaturates and tones down vendor garbage.
 
 Unlike it's similarly named sibling Bagnon ItemLevel which is mainly a straight forward one-trick pony for people only needing the item levels, this addon has an options menu and gives you far more control over the various settings.
